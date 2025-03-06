@@ -12,7 +12,7 @@ const Loading = () => {
         color: "white",
       }}
     >
-      <CircularProgress size={48} />
+      <CircularProgress size={48} sx={{ color: "black" }} />
     </Box>
   );
 };

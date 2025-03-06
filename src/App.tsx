@@ -5,7 +5,10 @@ import Routes from "./Routes";
 import { createTheme, ThemeProvider } from "@mui/material/styles";
 import { CssBaseline } from "@mui/material";
 import { SWRConfig } from "swr";
-import { useEnqueueSnackbar } from "./components/snackbar/Snackbar";
+import {
+  EnqueueSnackbarProvider,
+  useEnqueueSnackbar,
+} from "./components/snackbar/Snackbar";
 import { UnNotifiedError } from "./services/Error";
 
 const theme = createTheme({});
@@ -34,9 +37,11 @@ const App: React.FC = () => {
     >
       <ThemeProvider theme={theme}>
         <CssBaseline />
-        <Router>
-          <Routes />
-        </Router>
+        <EnqueueSnackbarProvider>
+          <Router>
+            <Routes />
+          </Router>
+        </EnqueueSnackbarProvider>
       </ThemeProvider>
     </SWRConfig>
   );

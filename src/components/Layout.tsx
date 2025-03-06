@@ -3,6 +3,8 @@ import { Box } from "@mui/material";
 import Header from "./Header";
 import Footer from "./Footer";
 import { ThemeProvider } from "../contexts/ThemeContext";
+import { useAuth } from "../hooks/authHooks";
+import PasswordInput from "./PasswordInput";
 
 type LayoutProps = {
   backgroundColor?: string;
@@ -13,6 +15,11 @@ const Layout: React.FC<LayoutProps> = ({
   backgroundColor = "white",
   children,
 }) => {
+  const { isAuthenticated } = useAuth();
+
+  if (!isAuthenticated) {
+    return <PasswordInput />;
+  }
   return (
     <ThemeProvider backgroundColor={backgroundColor}>
       <Box
