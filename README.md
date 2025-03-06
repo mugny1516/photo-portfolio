@@ -4,6 +4,18 @@
 
 このサイトの特徴として、写真の撮影時間に応じて背景色が変化する仕組みを採用しており、時間の流れとともに写真が持つ雰囲気をより引き立てるデザインになっています。
 
+<div style="display: flex; justify-content: space-between;">
+  <img src="/public/image1.jpg" alt="Image 1" width="45%" />
+  <img src="/public/image2.jpg" alt="Image 2" width="45%" />
+</div>
+
+## 注意事項
+
+このポートフォリオサイトにアクセスするためには、パスコード「000」が必要です。
+最初にパスコードが入力されるので、上記を入力して送信をし、サイトを閲覧してください。
+
+<img src="/public/image3.jpg" alt="Image 3" width="100%" />
+
 ## 使用技術
 
 - **フロントエンド**:
