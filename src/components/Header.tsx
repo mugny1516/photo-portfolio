@@ -86,7 +86,7 @@ const Header: React.FC = () => {
               onClick={toggleDrawer(false)}
               sx={{
                 color: textColor,
-                border: `solid 1px`,
+                borderBottom: `solid 1px`,
                 textAlign: "center",
               }}
             >
