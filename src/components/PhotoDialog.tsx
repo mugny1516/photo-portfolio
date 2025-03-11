@@ -37,7 +37,7 @@ const PhotoDialog: React.FC<PhotoDialogProps> = ({
           backgroundColor: backgroundColor,
           boxShadow: "none",
           position: "relative",
-          minHeight: "60vh",
+          minHeight: "60vh", // ダイアログの最小高さ
         },
       }}
     >
@@ -62,8 +62,9 @@ const PhotoDialog: React.FC<PhotoDialogProps> = ({
             display: "flex",
             justifyContent: "center",
             alignItems: "center",
-            height: "80vh",
+            height: "calc(80vh - 64px)",
             p: 2,
+            overflow: "hidden",
           }}
         >
           <Box
@@ -71,18 +72,21 @@ const PhotoDialog: React.FC<PhotoDialogProps> = ({
             src={photo.img.url}
             alt={`撮影日時: ${photo.takenAt}`}
             sx={{
-              maxWidth: "100%",
-              objectFit: "cover",
+              objectFit: "contain",
+              width: "auto",
+              height: "auto",
+              maxWidth: "64vw",
+              maxHeight: "60vh",
             }}
           />
         </Box>
       </Fade>
 
-      {/* 下部ナビゲーション（ */}
+      {/* 下部ナビゲーション */}
       <Box
         sx={{
           position: "absolute",
-          bottom: 36,
+          bottom: 16, // 少し下げて余白を確保
           left: 0,
           right: 0,
           display: "flex",
