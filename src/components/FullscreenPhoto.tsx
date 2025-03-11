@@ -23,6 +23,8 @@ const FullscreenPhoto: React.FC<FullscreenPhotoProps> = ({
 
   // 現在時刻に最も近い写真を取得
   const closestPhoto = getClosestPhoto(data || []);
+  console.log(data && data[0]);
+
   // スクロール位置に応じた透明度を計算
   const opacity = calculateOpacity(scrollPosition);
 
