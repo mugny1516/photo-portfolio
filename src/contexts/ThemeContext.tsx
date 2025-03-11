@@ -22,7 +22,7 @@ export const ThemeProvider: React.FC<ThemeProviderProps> = ({
   const textColor = backgroundColor === "black" ? "white" : "black";
   const value = useMemo(
     () => ({ backgroundColor, textColor }),
-    [backgroundColor]
+    [backgroundColor],
   );
   return (
     <ThemeContext.Provider value={value}>{children}</ThemeContext.Provider>

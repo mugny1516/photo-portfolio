@@ -1,20 +1,20 @@
 import Button from "@mui/material/Button";
 import Typography from "@mui/material/Typography";
 import { Box, Container } from "@mui/material";
-import { css } from "@emotion/react";
-
-const containerStyle = css`
-  background: white;
-  padding-top: 24px;
-  padding-bottom: 24px;
-`;
 
 const ErrorPage = () => {
   const handleReload = () => {
     window.location.reload();
   };
   return (
-    <Container maxWidth="sm" sx={containerStyle}>
+    <Container
+      maxWidth="sm"
+      sx={{
+        background: "white",
+        paddingTop: "24px",
+        paddingBottom: "24px",
+      }}
+    >
       <Box
         display="flex"
         justifyContent="center"
@@ -36,11 +36,12 @@ const ErrorPage = () => {
         <Typography variant="body1">
           再度読み込んでいただくと、正常にデータを取得できる可能性があります。エラーが続く場合は時間をおいて再度お試しください。
         </Typography>
-
         <Button
-          variant="contained"
+          variant="outlined"
           onClick={handleReload}
           sx={{
+            color: "black",
+            borderColor: "black",
             width: "96%",
             padding: "14px 20px",
             fontSize: "15px",
