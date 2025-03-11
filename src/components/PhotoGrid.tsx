@@ -25,7 +25,7 @@ const PhotoGrid: React.FC<PhotoGridProps> = ({ photos }) => {
       setFade(false);
       setTimeout(() => {
         setSelectedIndex((prev) =>
-          prev !== null ? (prev - 1 + photos.length) % photos.length : 0
+          prev !== null ? (prev - 1 + photos.length) % photos.length : 0,
         );
         setFade(true);
       }, 200);
@@ -36,7 +36,7 @@ const PhotoGrid: React.FC<PhotoGridProps> = ({ photos }) => {
       setFade(false);
       setTimeout(() => {
         setSelectedIndex((prev) =>
-          prev !== null ? (prev + 1) % photos.length : 0
+          prev !== null ? (prev + 1) % photos.length : 0,
         );
         setFade(true);
       }, 200);

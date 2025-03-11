@@ -5,7 +5,7 @@ export const useScrollPosition = (): number => {
   useEffect(() => {
     const updatePosition = () => {
       setScrollPosition(
-        window.pageYOffset || document.documentElement.scrollTop
+        window.pageYOffset || document.documentElement.scrollTop,
       );
     };
     window.addEventListener("scroll", updatePosition);

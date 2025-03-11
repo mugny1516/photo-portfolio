@@ -13,7 +13,7 @@ const endpoint = import.meta.env.VITE_MICROCMS_ENDPOINT;
 export const useAbout = () => {
   const { data, error, isLoading }: LoadState<ObjTypeResponse & About> = useSWR(
     `${endpoint}/about`,
-    fetcher
+    fetcher,
   );
   return { data, error, isLoading };
 };

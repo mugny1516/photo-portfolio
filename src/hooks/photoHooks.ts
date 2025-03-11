@@ -13,7 +13,7 @@ const endpoint = import.meta.env.VITE_MICROCMS_ENDPOINT;
 export const usePhotos = () => {
   const { data, error, isLoading }: LoadState<ListTypeResponse<Photo>> = useSWR(
     `${endpoint}/photo-list?limit=100`,
-    fetcher
+    fetcher,
   );
   return { data: data?.contents, error, isLoading };
 };
