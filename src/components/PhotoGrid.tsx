@@ -45,7 +45,7 @@ const PhotoGrid: React.FC<PhotoGridProps> = ({ photos }) => {
 
   return (
     <>
-      <Box px={{ xs: 2, md: 12 }} ml={{ xs: 0, lg: 9 }}>
+      <Box px={{ xs: 2, md: 12 }} ml={{ xs: 0, md: 9 }}>
         <Grid container spacing={2}>
           {photos.map((photo, index) => (
             <Grid
