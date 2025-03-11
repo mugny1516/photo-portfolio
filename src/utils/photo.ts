@@ -112,12 +112,28 @@ export const getBackgroundColor = (currentHour: number): "white" | "black" => {
  * @returns {Photo | undefined} 最も現在時刻に近い Photo オブジェクト、または undefined（データが空の場合）
  */
 export const getClosestPhoto = (photos: Photo[]): Photo | undefined => {
-  const now = new Date().getTime();
-  return photos.reduce((prev, curr) => {
-    return Math.abs(new Date(curr.takenAt).getTime() - now) <
-      Math.abs(new Date(prev.takenAt).getTime() - now)
-      ? curr
-      : prev;
+  const now = new Date(); // 現在時刻を取得
+  const nowTime = now.getHours() * 60 + now.getMinutes(); // 時間を分単位で取得（例: 14:30 => 870）
+
+  // フォトリストが空でないか確認
+  if (!photos || photos.length === 0) {
+    return undefined;
+  }
+
+  // 最も現在時刻に近い写真を見つける
+  return photos.reduce((closest, current) => {
+    const takenAtTime = new Date(current.takenAt); // takenAt を Date に変換
+    const photoTime = takenAtTime.getHours() * 60 + takenAtTime.getMinutes(); // 写真の撮影時間を分単位で取得
+
+    // 現在の写真が最も近い場合、current を選択
+    return Math.abs(photoTime - nowTime) <
+      Math.abs(
+        new Date(closest.takenAt).getHours() * 60 +
+          new Date(closest.takenAt).getMinutes() -
+          nowTime
+      )
+      ? current
+      : closest;
   });
 };
 

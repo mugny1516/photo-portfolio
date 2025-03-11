@@ -33,7 +33,7 @@ const alertStyle = css({
 export const useEnqueueSnackbar: () => (
   message: SnackbarMessage,
   options?: OptionsObject,
-  alertProps?: AlertProps
+  alertProps?: AlertProps,
 ) => SnackbarKey = () => {
   const { enqueueSnackbar, closeSnackbar } = useSnackbar();
 
@@ -50,10 +50,10 @@ export const useEnqueueSnackbar: () => (
           onClose={() => closeSnackbar(options.key)}
           variant={options?.variant}
         />,
-        options
+        options,
       );
     },
-    [closeSnackbar, enqueueSnackbar]
+    [closeSnackbar, enqueueSnackbar],
   );
 };
 
@@ -83,7 +83,7 @@ const AlertInsideSnackbar = memo(
         }}
       />
     );
-  }
+  },
 );
 
 export const EnqueueSnackbarProvider = memo(
@@ -99,5 +99,5 @@ export const EnqueueSnackbarProvider = memo(
         {children}
       </SnackbarProvider>
     );
-  }
+  },
 );

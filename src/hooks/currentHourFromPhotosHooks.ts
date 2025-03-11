@@ -24,7 +24,7 @@ export const useCurrentHourFromPhotos = (scrollPosition: number): number => {
     // 最も近い写真から時間を取得して状態を更新
     if (closestPhoto) {
       const hour = parseInt(
-        (closestPhoto as HTMLElement).getAttribute("data-hour") || "0"
+        (closestPhoto as HTMLElement).getAttribute("data-hour") || "0",
       );
       setCurrentHour(hour);
     }

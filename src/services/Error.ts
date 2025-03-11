@@ -9,7 +9,10 @@ export class BaseError extends Error {
 export class UnNotifiedError extends BaseError {}
 
 export class DisplayedError extends BaseError {
-  public constructor(public errorMessage: string, public error?: unknown) {
+  public constructor(
+    public errorMessage: string,
+    public error?: unknown,
+  ) {
     super(`ユーザーに表示するエラー：${errorMessage}`);
   }
 }
