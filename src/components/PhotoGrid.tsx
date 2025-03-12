@@ -53,6 +53,7 @@ const PhotoGrid: React.FC<PhotoGridProps> = ({ photos }) => {
               xs={6}
               sm={4}
               md={2.4}
+              lg={2}
               key={photo.id}
               sx={{ position: "relative" }}
               // サイドバーからのスクロール用
