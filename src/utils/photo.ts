@@ -24,15 +24,18 @@ export const formatTakenAt = (dateString: string): string => {
  * @returns ソート済みの Photo オブジェクトの配列
  */
 export const sortPhotosByHour = (photos: Photo[]): Photo[] => {
-  const currentHour = new Date().getHours();
+  const now = new Date();
+  const currentMinutes = now.getHours() * 60 + now.getMinutes(); // 現在の時刻（分単位）
+
   return photos.slice().sort((a, b) => {
-    const hourA = new Date(a.takenAt).getHours();
-    const hourB = new Date(b.takenAt).getHours();
-    // 現在時刻からの時間差を24時間サイクルで計算
-    const diffA =
-      hourA >= currentHour ? hourA - currentHour : hourA + 24 - currentHour;
-    const diffB =
-      hourB >= currentHour ? hourB - currentHour : hourB + 24 - currentHour;
+    const dateA = new Date(a.takenAt);
+    const dateB = new Date(b.takenAt);
+    const minutesA = dateA.getHours() * 60 + dateA.getMinutes();
+    const minutesB = dateB.getHours() * 60 + dateB.getMinutes();
+
+    // 現在時刻からの時間差（分単位）を24時間サイクルで計算（日付は考慮しない）
+    const diffA = (minutesA - currentMinutes + 1440) % 1440;
+    const diffB = (minutesB - currentMinutes + 1440) % 1440;
 
     return diffA - diffB;
   });
